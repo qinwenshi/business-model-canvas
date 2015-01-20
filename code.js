@@ -74,11 +74,19 @@ var tableLayout = [
     ]
 ];
 
-var app = angular.module('BusinessModelCanvas', ['ui.keypress']);
+var app = angular.module('BusinessModelCanvas', ['ui.keypress', 'LocalStorageModule'])
+.config(function(localStorageServiceProvider){
+  localStorageServiceProvider.setPrefix('bmc');
+});
 
-app.controller('RootController', function($scope) {
-    $scope.doc = doc;
+app.controller('RootController', function($scope, localStorageService) {
+    var storedBusinessModel = localStorageService.get('localBusinessModel');
+    $scope.doc = storedBusinessModel || doc;
     $scope.tableLayout = tableLayout;
+
+    $scope.$watch('doc', function(){
+        localStorageService.set('localBusinessModel', $scope.doc);
+    }, true);
 });
 
 app.controller('SectionController', function($scope) {

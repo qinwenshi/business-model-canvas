@@ -1,6 +1,6 @@
 var doc = {
-    designedFor: "A customer",
-    designedBy: "ME!!!!",
+    designedFor: "Gloden Customer",
+    designedBy: "Qinwen Shi",
     date: "Today",
     version: 7,
     sections: {
@@ -87,6 +87,11 @@ app.controller('RootController', function($scope, localStorageService) {
     $scope.$watch('doc', function(){
         localStorageService.set('localBusinessModel', $scope.doc);
     }, true);
+
+    $scope.clearAll = function(){
+      (localStorageService.clearAll)();
+      $scope.doc = doc;
+    };
 });
 
 app.controller('SectionController', function($scope) {

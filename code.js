@@ -74,7 +74,7 @@ var tableLayout = [
     ]
 ];
 
-var app = angular.module('BusinessModelCanvas', ['ui.keypress', 'LocalStorageModule'])
+var app = angular.module('BusinessModelCanvas', ['ui.keypress', 'LocalStorageModule', 'ngTouch'])
 .config(function(localStorageServiceProvider){
   localStorageServiceProvider.setPrefix('bmc');
 });

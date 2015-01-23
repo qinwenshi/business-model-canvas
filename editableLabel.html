@@ -5,7 +5,7 @@
            bmc-select-all="justAdded"
            ng-blur="stopEditing()"
            ui-keypress="{'enter esc': 'stopEditing()'}">
-    <span ng-hide="editing" ng-dblclick="edit()">
+    <span ng-hide="editing" ng-dblclick="edit()" ng-swipe-left="edit()">
         {{model}}
     </span>
 </div>

@@ -92,6 +92,17 @@ app.controller('RootController', function($scope, localStorageService) {
       (localStorageService.clearAll)();
       $scope.doc = doc;
     };
+
+    $scope.loadHistory = function(){
+      var docStr = prompt("Please enter saved data", "{}");
+      if(docStr != null)
+        $scope.doc = angular.fromJson(docStr);
+    };
+
+    $scope.archiveDoc = function(){
+      var docStr = angular.toJson($scope.doc);
+      alert(docStr);
+    };
 });
 
 app.controller('SectionController', function($scope) {

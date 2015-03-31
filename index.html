@@ -72,7 +72,7 @@
                         <span>{{cell.title}}</span>
 
                         <ul>
-                            <li ng-repeat="item in doc.sections[cell.key]">
+                            <li ng-repeat="item in doc.sections[cell.key]" ng-if="item.label">
                                 <bmc-editable-label model="item.label"
                                                     just-added="item === lastAddedItem">
                                 </bmc-editable-label>
